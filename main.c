@@ -17,6 +17,7 @@
 #define PESO_N2 2
 #define TAMANHO_INICIAL_LISTA 20
 #define NOME_SISTEMA "Sistema de Controle de Alunos"
+#define DEBUG 1
 
 // Aluno
 typedef struct {
@@ -71,8 +72,11 @@ Lista* lista_;
 
 int main () {
 
-//	lista_ = criaLista(TAMANHO_INICIAL_LISTA);
-	lista_ = criaListaFake();
+	if (DEBUG){
+		lista_ = criaListaFake();
+	} else {
+		lista_ = criaLista(TAMANHO_INICIAL_LISTA);
+	}
 
 	menuPrincipal();
 
