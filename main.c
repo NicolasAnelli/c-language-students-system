@@ -3,8 +3,8 @@
  * [V] - Listar
  * [V] - Aprovados
  * [V] - Reprovados
- * [ ] - Salvar no arquivo
- * [ ] - Ler do arquivo
+ * [V] - Salvar no arquivo
+ * [V] - Ler do arquivo
  * [V] - Menu
  */
 
@@ -228,6 +228,10 @@ void menuPrincipal(){
 	}
 }
 void imprimeMenuPrincipal() {
+
+	char *aux = (char*)malloc(80*sizeof(char));
+
+
 	cabecalho("Menu principal");
 	line("1. Cadastrar", 'L');
 	emptyLine();
@@ -237,9 +241,11 @@ void imprimeMenuPrincipal() {
 	emptyLine();
 	line("4. Reprovados", 'L');
 	emptyLine();
-	line("5. Ler do arquivo", 'L');
+	sprintf(aux, "5. Ler do arquivo: %s", ARQ_LISTA);
+	line(aux, 'L');
 	emptyLine();
-	line("6. Salvar no arquivo", 'L');
+	sprintf(aux, "6. Salvar no arquivo: %s", ARQ_LISTA);
+	line(aux, 'L');
 	emptyLine();
 	line("7. Restaurar (Nao salva automaticamente)", 'L');
 	emptyLine();
@@ -247,6 +253,8 @@ void imprimeMenuPrincipal() {
 	line("0. Sair", 'L');
 	emptyLine();
 	filledLine();
+
+	free(aux);
 }
 
 void menuCadastro(){
